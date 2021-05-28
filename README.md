@@ -101,7 +101,6 @@ The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/est
   - Code:https://github.com/andreaskipf/learnedcardinalities
 - LW-XGB & LW-NN
   - Paper:http://www.vldb.org/pvldb/vol12/p1044-dutt.pdf
-- Paper:
 - BayesNet
 - Bayescard:
   - Paper:https://arxiv.org/pdf/2012.14743.pdf
