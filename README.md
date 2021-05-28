@@ -25,7 +25,8 @@ tar cvf postgres-13.1.tar.gz postgresql-13.1-modify && mv postgres-13.1.tar.gz d
 cd dockerfile
 sudo docker build -t ceb .
 rm -rf postgres-13.1.tar.gz
-sudo docker run --name ce-benchmark  -d ceb
+## make sure port 5432 is not occupied
+sudo docker run --name ce-benchmark -p 5432:5432 -d ceb
 #if everything is ok, then you can log in the DBMS with psql with password as "postgres"
 psql -d template1 -h localhost -U postgres
 ```
@@ -39,8 +40,6 @@ make && make install
 echo 'export PATH=/usr/local/pgsql/13.1/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/pgsql/13.1/lib/:$LD_LIBRARY_PATH' >> ~/.bashrc
 ```
-
-
 
 ### Data Import
 
@@ -59,7 +58,15 @@ stats=# \i scripts/import/stats_index.sql
 ## Incorporation of CardEst Methods into PostgreSQL
 
 1. Prepare [method].txt for a specific workload. Each line in [method].txt represents an estimate of a *sub-plan query*. An example for STATS-CEB is in `workloads/stats_CEB/sub_plan_queries/estimates`
-2.  Put [method].txt in the *data directory* of your Postgres. In this way, we can make sure Postgres could find [method].txt.
+
+2. Put [method].txt in the *data directory* of your Postgres. In this way, we can make sure Postgres could find [method].txt. Note that the path of data directory for docker deployment is `/var/lib/pgsql/13.1/data` in the container. The example command is:
+
+   ```bash
+   sudo docker cp [method].txt ce-benchmark:/var/lib/pgsql/13.1/data/[method].txt
+   ```
+
+   
+
 3. To enable Postgres to use estimates from different CardEst methods, we should trigger some knobs in the clients of PostgreSQL(e.g., psql)
 
 ```bash
@@ -83,18 +90,20 @@ Step2. run exp/scripts/gen_sub_queries_sql.py [for now is a hack version for JOB
 
 ## Model Tuning
 
-We compare both traditional and ML-enhanced methods for CardEst and show a list in the following. All of these methods are originally developed and tuned on the IMDB dataset, we took much effort to fine-tune different models for the STATS datasets. The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/estimates`. If you are interested at tuned code, you can email us for it. We are happy to offer most of them except some mthods with licence issue.
+We compare both traditional and ML-enhanced methods for CardEst and show a list in the following. All of these methods are originally developed and tuned on the IMDB dataset, we took much effort to fine-tune different models for the STATS datasets. 
 
-1. Histogram
-2. Sample
-3. [MSCN](https://arxiv.org/pdf/1809.00677.pdf): https://github.com/andreaskipf/learnedcardinalities
-4. [LW-XGB & LW-NN](http://www.vldb.org/pvldb/vol12/p1044-dutt.pdf)
-5. BayesNet
-6. [Bayescard](https://arxiv.org/pdf/2012.14743.pdf):https://github.com/wuziniu/BayesCard
-7. [Neurocard](https://arxiv.org/pdf/2006.08109.pdf):https://github.com/neurocard/neurocard
-8. UAE
-9. [DeepDB](https://arxiv.org/pdf/1909.00607.pdf):https://github.com/DataManagementLab/deepdb-public
-10. [FLAT](https://arxiv.org/pdf/2011.09022.pdf)
+The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/estimates`. If you are interested at tuned code, you can email us for it. We are happy to offer most of them except some mthods with licence issue.
+
+- Histogram
+- Sample
+- [MSCN](https://arxiv.org/pdf/1809.00677.pdf): https://github.com/andreaskipf/learnedcardinalities
+- [LW-XGB & LW-NN](http://www.vldb.org/pvldb/vol12/p1044-dutt.pdf)
+- BayesNet
+- [Bayescard](https://arxiv.org/pdf/2012.14743.pdf):https://github.com/wuziniu/BayesCard
+- [Neurocard](https://arxiv.org/pdf/2006.08109.pdf):https://github.com/neurocard/neurocard
+- UAE
+- [DeepDB](https://arxiv.org/pdf/1909.00607.pdf):https://github.com/DataManagementLab/deepdb-public
+- [FLAT](https://arxiv.org/pdf/2011.09022.pdf)
 
 
 
