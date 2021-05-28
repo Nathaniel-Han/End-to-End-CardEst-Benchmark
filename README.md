@@ -90,7 +90,7 @@ Step2. run exp/scripts/gen_sub_queries_sql.py [for now is a hack version for JOB
 
 We compare both traditional and ML-enhanced methods for CardEst and show a list in the following. All of these methods are originally developed and tuned on the IMDB dataset, we took much effort to fine-tune different models for the STATS datasets. 
 
-The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/estimates`. If you are interested at tuned code, you can email us for it. We are happy to offer most of them except some mthods with licence issue.
+The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/estimates`. If you are interested at tuned code, you can email us for it. We are happy to offer most of them except some mthods with licence issues.
 
 - Traditional Methods:
   - Histogram
