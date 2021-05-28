@@ -65,8 +65,6 @@ stats=# \i scripts/import/stats_index.sql
    sudo docker cp [method].txt ce-benchmark:/var/lib/pgsql/13.1/data/[method].txt
    ```
 
-   
-
 3. To enable Postgres to use estimates from different CardEst methods, we should trigger some knobs in the clients of PostgreSQL(e.g., psql)
 
 ```bash
@@ -94,26 +92,29 @@ We compare both traditional and ML-enhanced methods for CardEst and show a list 
 
 The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/estimates`. If you are interested at tuned code, you can email us for it. We are happy to offer most of them except some mthods with licence issue.
 
-- Histogram
-- Sample
-- MSCN(): 
-  - Paper:https://arxiv.org/pdf/1809.00677.pdf
-  - Code:https://github.com/andreaskipf/learnedcardinalities
-- LW-XGB & LW-NN
-  - Paper:http://www.vldb.org/pvldb/vol12/p1044-dutt.pdf
-- BayesNet
-- Bayescard:
-  - Paper:https://arxiv.org/pdf/2012.14743.pdf
-  - Code:https://github.com/wuziniu/BayesCard
-- Neurocard:
-  - Paper:https://arxiv.org/pdf/2006.08109.pdf
-  - Code:https://github.com/neurocard/neurocard
-- UAE
-- DeepDB:
-  - Paper:https://arxiv.org/pdf/1909.00607.pdf
-  - Code:https://github.com/DataManagementLab/deepdb-public
-- FLAT
-  - Paper:https://arxiv.org/pdf/2011.09022.pdf
+- Traditional Methods:
+  - Histogram
+  - Sample
+  - BayesNet
+- Query-Driven Methods:
+	- MSCN: 
+    - Paper:https://arxiv.org/pdf/1809.00677.pdf
+    - Code:https://github.com/andreaskipf/learnedcardinalities
+  - LW-XGB & LW-NN
+    - Paper:http://www.vldb.org/pvldb/vol12/p1044-dutt.pdf
+- Data-Driven Methods:
+  - Bayescard:
+    - Paper:https://arxiv.org/pdf/2012.14743.pdf
+    - Code:https://github.com/wuziniu/BayesCard
+  - Neurocard:
+    - Paper:https://arxiv.org/pdf/2006.08109.pdf
+    - Code:https://github.com/neurocard/neurocard
+  - UAE
+  - DeepDB:
+    - Paper:https://arxiv.org/pdf/1909.00607.pdf
+    - Code:https://github.com/DataManagementLab/deepdb-public
+  - FLAT
+    - Paper:https://arxiv.org/pdf/2011.09022.pdf
 
 
 
