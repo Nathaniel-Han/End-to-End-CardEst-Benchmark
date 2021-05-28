@@ -96,14 +96,25 @@ The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/est
 
 - Histogram
 - Sample
-- [MSCN](https://arxiv.org/pdf/1809.00677.pdf): https://github.com/andreaskipf/learnedcardinalities
-- [LW-XGB & LW-NN](http://www.vldb.org/pvldb/vol12/p1044-dutt.pdf)
+- MSCN(): 
+  - Paper:https://arxiv.org/pdf/1809.00677.pdf
+  - Code:https://github.com/andreaskipf/learnedcardinalities
+- LW-XGB & LW-NN
+  - Paper:http://www.vldb.org/pvldb/vol12/p1044-dutt.pdf
+- Paper:
 - BayesNet
-- [Bayescard](https://arxiv.org/pdf/2012.14743.pdf):https://github.com/wuziniu/BayesCard
-- [Neurocard](https://arxiv.org/pdf/2006.08109.pdf):https://github.com/neurocard/neurocard
+- Bayescard:
+  - Paper:https://arxiv.org/pdf/2012.14743.pdf
+  - Code:https://github.com/wuziniu/BayesCard
+- Neurocard:
+  - Paper:https://arxiv.org/pdf/2006.08109.pdf
+  - Code:https://github.com/neurocard/neurocard
 - UAE
-- [DeepDB](https://arxiv.org/pdf/1909.00607.pdf):https://github.com/DataManagementLab/deepdb-public
-- [FLAT](https://arxiv.org/pdf/2011.09022.pdf)
+- DeepDB:
+  - Paper:https://arxiv.org/pdf/1909.00607.pdf
+  - Code:https://github.com/DataManagementLab/deepdb-public
+- FLAT
+  - Paper:https://arxiv.org/pdf/2011.09022.pdf
 
 
 
@@ -116,8 +127,4 @@ If you find the code useful, please cite our paper:
 
 }
 ```
-
-## Maintainers
-
-Yuxing Han(yuxing.hyx@alibaba-inc.com), Ziniu Wu(ziniu.wzn@alibaba-inc.com)
 
