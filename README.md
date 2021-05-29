@@ -78,11 +78,6 @@ stats=# SET ml_joinest_fname='[method_for_multi_table].txt' ## for multi-table
 
 ## How to Generate Sub-Plan Queries?
 
-```
-Step1. Enable print_sub_queries(SET print_sub_queries=true) and Send query workload to Postgres. Examples are in exp/scripts/send_imdb.py
-Step2. run exp/scripts/gen_sub_queries_sql.py [for now is a hack version for JOB-Light]
-```
-
 1. Enable `print_single_tbl_queries` or `print_sub_queries` to identify sub-plan queries of single-table or multi-table(`set print_single_tbl_queries=true` or `set print_sub_queries=true`). Then, send each query in the workload to PostgreSQL(An example can be found in  `scripts/py/send_imdb.py`). After that, we can find a new file `join_est_record_job.txt` in the *data directory* of Postgres.
 2. Run `scripts/py/gen_sub_queries_sql.py` to generate the formal SQL queries for sub-plan queries.
 
