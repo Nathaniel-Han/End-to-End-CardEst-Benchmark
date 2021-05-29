@@ -16,7 +16,7 @@ When a specific query is submitted to a DBMS,  the system will perform several t
 
 ### Deployment
 
-Our benchmark platform is based on a modified version of PostgreSQL 13.1. You can deploy it in two days.
+Our benchmark platform is based on a modified version of PostgreSQL 13.1. You can deploy it in two ways:
 
 #### 1.Docker (Recommend)
 
