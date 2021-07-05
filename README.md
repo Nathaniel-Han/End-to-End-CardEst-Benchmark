@@ -92,7 +92,7 @@ The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/est
   - Sample
   - BayesNet
 - Query-Driven Methods:
-	- MSCN: 
+  - MSCN: 
     - Paper:https://arxiv.org/pdf/1809.00677.pdf
     - Code:https://github.com/andreaskipf/learnedcardinalities
   - LW-XGB & LW-NN
