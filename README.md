@@ -111,6 +111,7 @@ The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/est
     - Code:https://github.com/DataManagementLab/deepdb-public
   - FLAT:
     - Paper:https://vldb.org/pvldb/vol14/p1489-zhu.pdf
+    - Code[FSPN]:https://github.com/wuziniu/FSPN
 
 
 
