@@ -4,7 +4,7 @@ Cardinality estimation(CardEst) is an important task in the query optimizer of r
 
 ## DataSets & Workloads
 
-We propose a new benchmark for evaluating CardEst methods, STATS-CEB, rather than the widely-used JOB benchmark. Based on our experimental analysis, STATS-CEB can distinguish the SOTA ML-enhanced more well. The original STATS dataset can be found in https://relational.fit.cvut.cz/dataset/Stats.
+We propose a new benchmark for evaluating CardEst methods, STATS-CEB, rather than the widely-used JOB benchmark(http://homepages.cwi.nl/~boncz/job/imdb.tgz). Based on our experimental analysis, STATS-CEB can distinguish the SOTA ML-enhanced more well. The original STATS dataset can be found in https://relational.fit.cvut.cz/dataset/Stats.
 
  So far, our evaluation focus on categorical or numerical SQL queries. Therefore, we provide a simplified version of STATS that eliminate all the attributes with string type. You can find the simplified STATS dataset in `datasets/`. We also  generate and carefully pick-up a meaningful workload called STATS-CEB based on the STATS dataset. You can find it in `workloads/stats_CEB/`.
 
@@ -39,6 +39,9 @@ cd postgresql-13.1-modify/
 make && make install
 echo 'export PATH=/usr/local/pgsql/13.1/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/pgsql/13.1/lib/:$LD_LIBRARY_PATH' >> ~/.bashrc
+source ~/.bashrc
+initdb -D $PSQL_DATA_DIRECTORY
+postgres -D $PSQL_DATA_DIRECTORY
 ```
 
 ### Data Import
@@ -127,7 +130,7 @@ If you find the code useful, please cite our paper:
 
 ## Contact
 
-- Yuxing Han: **yuxing.hyx@alibaba-inc.com**
+- Yuxing Han: **yxhan.me@gmail.com**
 
-- Ziniu Wu: **ziniu.wzn@alibaba-inc.com**
+- Ziniu Wu: **ziniuw@mit.edu**
 
