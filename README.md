@@ -1,6 +1,6 @@
 # End-to-End CardEst  Benchmark
 
-Cardinality estimation(CardEst) is an important task in the query optimizer of real-world database systems. In the modern cost-based query optimizers, the mission of CardEst is to estimate the number of tuples produced by  (sub-)queries. The errors of cardinality estimation will usually propagate, leading to sub-optimal or even worse plan selections. To estimate cardinality as accurate as possible, optimizers must be able to capture underlying data distribution and correlation cross columns (single-table query cases) and tables(join-query cases). Recently, more and more reseachers and practitioners appeal to ML-enhanced models to perform this task for their superiority with traditional methods. In spite of the emerging models to solve CardEst, an end-to-end evaluation platform is missing. This project presents an end-to-end platform to evaluate recent CardEst methods on PostgreSQL 13.1 that is used in our paper([Link](https://github.com/Nathaniel-Han/End-to-End-CardEst-Benchmark/tree/master/paper)).
+Cardinality estimation(CardEst) is an important task in the query optimizer of real-world database systems. In the modern cost-based query optimizers, the mission of CardEst is to estimate the number of tuples produced by  (sub-)queries. The errors of cardinality estimation will usually propagate, leading to sub-optimal or even worse plan selections. To estimate cardinality as accurate as possible, optimizers must be able to capture underlying data distribution and correlation cross columns (single-table query cases) and tables(join-query cases). Recently, more and more reseachers and practitioners appeal to ML-enhanced models to perform this task for their superiority with traditional methods. In spite of the emerging models to solve CardEst, an end-to-end evaluation platform is missing. This project presents an end-to-end platform to evaluate recent CardEst methods on PostgreSQL 13.1 that is used in our paper([Link](https://arxiv.org/pdf/2109.05877.pdf)).
 
 ## DataSets & Workloads
 
@@ -123,8 +123,11 @@ The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/est
 If you find the code useful, please cite our paper:
 
 ```
-@misc{
-
+@article{han2021CEbenchmark,
+  title={Cardinality Estimation in DBMS: A Comprehensive Benchmark Evaluation},
+  author={Han, Yuxing and Wu, Ziniu and Wu, Peizhi and Zhu, Rong and Yang,  Jingyi and Liang, Tan Wei and Zeng, Kai and Cong, Gao and Qin, Yanzhao and Pfadler, Andreas and  Qian, Zhengping and Zhou, Jingren and Li, Jiangneng, and Cui, Bin},
+  journal={arXiv preprint arXiv:2109.05877},
+  year={2021}
 }
 ```
 
