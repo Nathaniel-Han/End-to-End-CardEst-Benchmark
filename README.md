@@ -21,7 +21,8 @@ Our benchmark platform is based on a modified version of PostgreSQL 13.1. You ca
 #### 1.Docker (Recommend)
 
 ```bash
-tar cvf postgres-13.1.tar.gz postgresql-13.1-modify && mv postgres-13.1.tar.gz dockerfile/
+bash benchmark_builder.sh
+tar cvf postgres-13.1.tar.gz postgresql-13.1 && mv postgres-13.1.tar.gz dockerfile/
 cd dockerfile
 sudo docker build -t ceb .
 rm -rf postgres-13.1.tar.gz
@@ -34,7 +35,8 @@ psql -d template1 -h localhost -U postgres
 #### 2.Physical Machine
 
 ```bash
-cd postgresql-13.1-modify/
+bash benchmark_builder.sh
+cd postgresql-13.1/
 ./configure --prefix=/usr/local/pgsql/13.1 --enable-depend --enable-cassert --enable-debug CFLAGS="-ggdb -O0"
 make && sudo make install
 echo 'export PATH=/usr/local/pgsql/13.1/bin:$PATH' >> ~/.bashrc
@@ -136,7 +138,8 @@ If you find the code useful, please cite our paper:
 
 ## Contact
 
-- Yuxing Han: **yxhan.me@gmail.com**
+If you have \*ANY\* trouble to build this benchmark, please feel free to contact us. :)
 
+- Yuxing Han: **yxhan.me@gmail.com**
 - Ziniu Wu: **ziniuw@mit.edu**
 

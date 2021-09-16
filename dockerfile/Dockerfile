@@ -15,7 +15,7 @@ COPY ./postgres-13.1.tar.gz /root/postgres-13.1.tar.gz
 RUN cd /root/ \
     && tar xvf postgres-13.1.tar.gz  \
     && rm postgres-13.1.tar.gz \
-    && cd postgresql-13.1-modify \
+    && cd postgresql-13.1 \
     && ./configure --prefix=/usr/local/pgsql/13.1 --enable-depend --enable-cassert --enable-debug CFLAGS="-ggdb -O0" \
     && make \
     && make install \
