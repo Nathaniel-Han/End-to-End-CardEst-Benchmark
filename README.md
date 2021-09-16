@@ -36,7 +36,7 @@ psql -d template1 -h localhost -U postgres
 ```bash
 cd postgresql-13.1-modify/
 ./configure --prefix=/usr/local/pgsql/13.1 --enable-depend --enable-cassert --enable-debug CFLAGS="-ggdb -O0"
-make && make install
+make && sudo make install
 echo 'export PATH=/usr/local/pgsql/13.1/bin:$PATH' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/pgsql/13.1/lib/:$LD_LIBRARY_PATH' >> ~/.bashrc
 source ~/.bashrc
@@ -73,10 +73,10 @@ stats=# \i scripts/import/stats_index.sql
 ```bash
 stats=# SET ml_cardest_enabled=true; ## for single table
 stats=# SET ml_joinest_enabled=true; ## for multi-table
-stats=# SET query_no=0 ##for single table
-stats=# SET join_est_no=0 ##for multi-table
-stats=# SET ml_cardest_fname='[method_for_single_table].txt' ## for single table
-stats=# SET ml_joinest_fname='[method_for_multi_table].txt' ## for multi-table
+stats=# SET query_no=0; ##for single table
+stats=# SET join_est_no=0; ##for multi-table
+stats=# SET ml_cardest_fname='[method_for_single_table].txt'; ## for single table
+stats=# SET ml_joinest_fname='[method_for_multi_table].txt'; ## for multi-table
 ```
 
 ## How to Generate Sub-Plan Queries?
@@ -94,6 +94,9 @@ The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/est
   - Histogram
   - Sample
   - BayesNet
+  - Pessimistic Cardinality Estimator:
+  	- Paper:https://waltercai.github.io/assets/pessimistic-query-optimization.pdf
+  	- Code:https://github.com/waltercai/pqo-opensource
 - Query-Driven Methods:
   - MSCN
     - Paper:https://arxiv.org/pdf/1809.00677.pdf
