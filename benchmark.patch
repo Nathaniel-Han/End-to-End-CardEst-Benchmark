@@ -389,6 +389,18 @@ diff -ruN postgresql-13.1_11/src/backend/optimizer/path/costsize.c postgresql-13
  	return clamp_row_est(nrows);
  }
  
+diff -ruN postgresql-13.1_11/src/backend/postmaster/postmaster.c postgresql-13.1_12/src/backend/postmaster/postmaster.c
+--- postgresql-13.1_11/src/backend/postmaster/postmaster.c	2020-11-09 22:24:30.000000000 +0000
++++ postgresql-13.1_12/src/backend/postmaster/postmaster.c	2021-09-16 15:22:04.707139000 +0000
+@@ -578,6 +578,8 @@
+ void
+ PostmasterMain(int argc, char *argv[])
+ {
++    ereport(LOG, (errmsg_internal("%s:", "Benchmark Start..."), errdetail_internal("%s", "Postgres Main")));
++
+ 	int			opt;
+ 	int			status;
+ 	char	   *userDoption = NULL;
 diff -ruN postgresql-13.1_11/src/backend/utils/misc/guc.c postgresql-13.1_12/src/backend/utils/misc/guc.c
 --- postgresql-13.1_11/src/backend/utils/misc/guc.c	2020-11-09 22:24:30.000000000 +0000
 +++ postgresql-13.1_12/src/backend/utils/misc/guc.c	2021-09-16 11:42:02.739339000 +0000
