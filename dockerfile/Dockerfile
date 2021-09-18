@@ -1,5 +1,16 @@
 FROM debian:buster
 
+RUN apt-get update && apt-get install -y apt-transport-https ca-certificates
+
+RUN echo "deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free\n\
+	deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free\n\
+	deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free\n\
+	deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free\n\
+	deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free\n\
+	deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free\n\
+	deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free\n\
+	deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free" > /etc/apt/sources.list
+
 RUN apt-get update && apt-get install -y \
     wget \
     git \
