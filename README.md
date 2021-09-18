@@ -54,8 +54,8 @@ You can import the STATS dataset into Postgres through psql. Note you must make 
 template1=# create database stats
 template1=# \c stats
 stats=# \i datasets/stats_simplified/stats.sql
-stats=# \i scipts/import/stats_load.sql
-stats=# \i scripts/import/stats_index.sql
+stats=# \i scripts/sql/stats_load.sql
+stats=# \i scripts/sql/stats_index.sql
 ```
 
 
