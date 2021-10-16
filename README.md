@@ -131,8 +131,8 @@ If you find the code useful, please cite our paper:
 @article{han2021CEbenchmark,
   title={Cardinality Estimation in DBMS: A Comprehensive Benchmark Evaluation},
   author={Han, Yuxing and Wu, Ziniu and Wu, Peizhi and Zhu, Rong and Yang,  Jingyi and Liang, Tan Wei and Zeng, Kai and Cong, Gao and Qin, Yanzhao and Pfadler, Andreas and  Qian, Zhengping and Zhou, Jingren and Li, Jiangneng, and Cui, Bin},
-  journal={arXiv preprint arXiv:2109.05877},
-  year={2021}
+  journal={VLDB},
+  year={2022}
 }
 ```
 
