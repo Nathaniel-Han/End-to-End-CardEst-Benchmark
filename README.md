@@ -4,9 +4,9 @@ Cardinality estimation(CardEst) is an important task in the query optimizer of r
 
 ## DataSets & Workloads
 
-We propose a new benchmark for evaluating CardEst methods, STATS-CEB, rather than the widely-used JOB benchmark(http://homepages.cwi.nl/~boncz/job/imdb.tgz). Based on our experimental analysis, STATS-CEB can distinguish the SOTA ML-enhanced more well. The original STATS dataset can be found in https://relational.fit.cvut.cz/dataset/Stats.
+We propose a new benchmark for evaluating CardEst methods, STATS-CEB, rather than the widely-used JOB benchmark (http://homepages.cwi.nl/~boncz/job/imdb.tgz). Based on our experimental analysis, STATS-CEB can distinguish the SOTA ML-enhanced methods more well. The original STATS dataset can be found in https://relational.fit.cvut.cz/dataset/Stats.
 
- So far, our evaluation focus on categorical or numerical SQL queries. Therefore, we provide a simplified version of STATS that eliminate all the attributes with string type. You can find the simplified STATS dataset in `datasets/`. We also  generate and carefully pick-up a meaningful workload called STATS-CEB based on the STATS dataset. You can find it in `workloads/stats_CEB/`.
+ So far, our evaluation focus on categorical or numerical SQL queries. Therefore, we provide a simplified version of STATS that eliminate all the attributes with string type. You can find the simplified STATS dataset in `datasets/`. We also  generate and carefully pick-up a meaningful workloads called STATS-CEB based on the STATS dataset. You can find them in `workloads/stats_CEB/`.
 
 ### Sub-Plan Queries
 
@@ -84,13 +84,13 @@ stats=# SET ml_joinest_fname='[method_for_multi_table].txt'; ## for multi-table
 ## How to Generate Sub-Plan Queries?
 
 1. Enable `print_single_tbl_queries` or `print_sub_queries` to identify sub-plan queries of single-table or multi-table(`set print_single_tbl_queries=true` or `set print_sub_queries=true`). Then, send each query in the workload to PostgreSQL(An example can be found in  `scripts/py/send_imdb.py`). After that, we can find a new file `join_est_record_job.txt` in the *data directory* of Postgres.
-2. Run `scripts/py/gen_sub_queries_sql_IMDB.py` or `scripts/py/gen_sub_queries_sql_STATS.py` to generate the legitimate SQL queries for sub-plan queries. These SQL query generation files are hard-coded for these two datasets so they will work for a new dataset.
+2. Run `scripts/py/gen_sub_queries_sql_IMDB.py` or `scripts/py/gen_sub_queries_sql_STATS.py` to generate the legitimate SQL queries for sub-plan queries. These SQL query generation files are hard-coded for these two datasets so they may not work for a new dataset.
 
 ## Model Tuning
 
 We compare both traditional and ML-enhanced methods for CardEst and show a list in the following. All of these methods are originally developed and tuned on the IMDB dataset, we took much effort to fine-tune different models for the STATS datasets. 
 
-The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/estimates`. If you are interested at tuned code, you can email us for it. We are happy to offer most of them except some mthods with licence issues.
+The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/estimates`. If you are interested at tuned code, you can email us for it. We are happy to offer most of them except some with licence issues.
 
 - Traditional Methods:
   - Histogram
