@@ -96,6 +96,9 @@ The estimation results can be found in `workloads/stats_CEB/sub_plan_queries/est
   - Histogram
   - Sample
   - BayesNet
+  - Wander Join/XDB
+    - Paper:https://www.cse.ust.hk/~yike/sigmod16.pdf
+    - Code:https://github.com/InitialDLab/XDB
   - Pessimistic Cardinality Estimator:
   	- Paper:https://waltercai.github.io/assets/pessimistic-query-optimization.pdf
   	- Code:https://github.com/waltercai/pqo-opensource
