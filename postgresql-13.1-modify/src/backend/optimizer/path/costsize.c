@@ -106,7 +106,7 @@
 #define LOG2(x)  (log(x) / 0.693147180559945)
 
 /** modified  */
-#define CARD_EST_QUERY_NUM 10000
+#define CARD_EST_QUERY_NUM 100000
 static double card_ests[CARD_EST_QUERY_NUM] = {0.0};
 static double join_card_ests[CARD_EST_QUERY_NUM] = {0.0};
 int         query_no = 0;
