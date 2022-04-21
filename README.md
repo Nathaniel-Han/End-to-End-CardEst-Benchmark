@@ -135,7 +135,10 @@ If you find the code useful, please cite our paper:
   title={Cardinality Estimation in DBMS: A Comprehensive Benchmark Evaluation},
   author={Han, Yuxing and Wu, Ziniu and Wu, Peizhi and Zhu, Rong and Yang,  Jingyi and Liang, Tan Wei and Zeng, Kai and Cong, Gao and Qin, Yanzhao and Pfadler, Andreas and  Qian, Zhengping and Zhou, Jingren and Li, Jiangneng, and Cui, Bin},
   journal={VLDB},
-  year={2022}
+  year={2022},
+  volume={15},
+  number={4},
+  issn={2150-8097}
 }
 ```
 
