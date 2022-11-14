@@ -1,4 +1,5 @@
 import copy
+import argparse
 
 ops = {"=", "<", ">", "<=", ">="}
 
@@ -234,26 +235,36 @@ def process_one(query, sub_queries, write_file, i, j):
     return i, len(table_names)
 
 
-def generate_all_join_queries(raw_file="join_est_record_stats_CEB_process.txt",
-                              write_file_path="stats_CEB_sub_queries.sql"):
-    file = open(raw_file, "r+")
-    string = file.read()
-    string = string.replace("select", "SELECT")
-    per_queries = string.split("SELECT")[1:]
+def generate_all_join_queries(raw_file, query_file, write_file_path):
+    with open(raw_file, "r") as f:
+        raw_string = f.read()
+    per_queries = raw_string.split("query: 0")[1:]
+    
+    with open(query_file, "r") as f:
+        queries = f.readlines()
 
     write_file = open(write_file_path, "w")
     i = 0
     table_nums = []
     for j, q in enumerate(per_queries):
-
-        n = len(q.split("\n")[0])
-        query = "SELECT" + q.split("\n")[0]
+        query = queries[j]
+        query = query.replace("select", "SELECT")
+        query = query.split("||")[0]
         query = query.strip()
         query = query[:-1] if query[-1] == ';' else query
-        sub_queries = q[n:].strip().split("\n\n\n")
+        sub_queries = q.strip().split("\n\n\n")
         i, t_num = process_one(query, sub_queries, write_file, i, j)
         table_nums.append(t_num)
     write_file.close()
-    file.close()
 
-
+    
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--raw_file', type=str, default='join_est_record_job.txt', help='the raw sub-plan query files')
+    parser.add_argument('--query_file', type=str, default='stats_CEB.sql', help='the sql query files')
+    parser.add_argument('--write_file_path', type=str, default='stats_CEB_sub_queries.sql', help='where to save file')
+    args = parser.parse_args()
+    
+    generate_all_join_queries(args.raw_file, args.query_file, args.write_file_path)
+    
+    
