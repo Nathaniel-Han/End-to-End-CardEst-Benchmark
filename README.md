@@ -146,6 +146,6 @@ If you find the code useful, please cite our paper:
 
 If you have \*ANY\* trouble to build this benchmark, please feel free to contact us. :)
 
-- Yuxing Han: **yxhan.me@gmail.com**
+- Yuxing Han: **hanyuxing@bytedance.com**
 - Ziniu Wu: **ziniuw@mit.edu**
 
